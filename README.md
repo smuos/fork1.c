@@ -9,7 +9,7 @@ That includes fixing errors and bugs, but also coding style, comments, or lack o
 Your final code must correctly compile with gcc 4.9.1, without warnings, with the following command exactly:
 
 ```bash
-gcc -Wall -o fork fork1.c
+gcc -Wall -o fork.out fork1.c
 ```
 
 Make use of [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_Commit_Convention) and informative commit messages.
