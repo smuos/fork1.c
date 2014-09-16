@@ -1,16 +1,25 @@
 fork1.c
 =======
 
-A simply wrong fork() example in C
+> A simply ~~wrong~~ correct [fork()](http://goo.gl/zhh3Dx) example in C
 
+---
 
-Your mission is to fix this wayward example of the fork system call.  
-That includes fixing errors and bugs, but also coding style, comments, or lack of comments, etc.  
-Your final code must correctly compile with gcc 4.9.1, without warnings, with the following command exactly:
+## Build
+
+Compiles with gcc 4.9.1, without warnings, with the following command exactly:
 
 ```bash
 gcc -Wall -o fork.out fork1.c
 ```
+
+## Run
+
+```bash
+./fork.out
+```
+
+## Contributing
 
 Make use of [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_Commit_Convention) and informative commit messages.
 
