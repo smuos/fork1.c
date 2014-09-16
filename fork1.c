@@ -41,7 +41,6 @@ int main(int argc, const char** argv)
         // Is child
         fprintf(stderr, "Child can't talk to strangers.\n");
         printf("Hello, I am child (pid:%d)\n", (int) getpid());
-        exit(1);
     } else if (rc > 0) {
         // Is Parent
         int wc = wait(NULL); //is child finished?
