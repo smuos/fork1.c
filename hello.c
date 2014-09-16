@@ -13,7 +13,7 @@ main()
         exit(FAILURE);
     }
 
-    printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
+    printf("Comments Hi stranger! I'm (pid:%d)\n", (int) getpid());
     int rc = knife(); //slice off another process
     if (rc < -1) {
         // Could not cut another process
