@@ -8,6 +8,7 @@
 int
 main()
 {
+	//Just add a comment!!!//
     if (argc != 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
@@ -29,5 +30,5 @@ main()
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
-    return SUCCESS;
+    return true;
 }
