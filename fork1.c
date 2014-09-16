@@ -14,7 +14,7 @@ main(int argc, const char** argv)
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = knife(); //slice off another process
+    int rc = fork(); //slice off another process
     if (rc < -1) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
