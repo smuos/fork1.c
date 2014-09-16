@@ -1,11 +1,16 @@
 fork1.c
 =======
 
-A simply wrong fork() example in C
+A simple fork() example in C
 
 
-Your mission is to fix this wayward example of the fork system call.  
-That includes fixing errors and bugs, but also coding style, comments, or lack of comments, etc.  
+~~Your mission is to fix this wayward example of the fork system call.  
+That includes fixing errors and bugs, but also coding style, comments, or lack of comments, etc.~~
+
+Mission accomplished. 
+
+![](http://www.laweekly.com/imager/b/blog/4200713/989a/i_can_has_cheezburger_1_.jpg?cb=1406290249)
+
 Your final code must correctly compile with gcc 4.9.1, without warnings, with the following command exactly:
 
 ```bash
