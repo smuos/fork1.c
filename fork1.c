@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SUCCESS  1
-#define FAILURE  0
+#define SUCCESS  0
+#define FAILURE  1
 
 int
 main(int argc, char *argv[])
