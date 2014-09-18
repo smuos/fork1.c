@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #define SUCCESS  1
-#define FAILURE -1
+#define FAILURE 0
 
 int
 main(int argc, char *argv[])
