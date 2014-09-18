@@ -19,7 +19,7 @@ main(int argc, char *argv[])
     if (rc < 0) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
-        exit(0);
+        exit(1);
     } else if (rc == 0) {
         fprintf(stderr, "Child can't talk to strangers.\n"); exit(1); printf("Hello, I am child (pid:%d)\n", (int) rc); sleep(1);
     } else{
@@ -27,5 +27,5 @@ main(int argc, char *argv[])
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
-    return SUCCESS;
+    return 0;
 }
