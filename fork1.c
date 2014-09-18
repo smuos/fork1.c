@@ -26,13 +26,13 @@ main(int argc, char *argv[])
         fprintf(stdout, "OS too hard, could not cut.\n");
 	//exit the program
         exit(FAILURE);
-	
-    } else if (rc == 1) {
+	//	
+    } else if (rc == 0) {
         fprintf(stderr, "Child can't talk to strangers.\n");
-	exit(1);
+	exit(FAILURE);
 	printf("Hello, I am child (pid:%d)\n", (int) rc);
 	sleep(1);
-    } else if (rc == 2) {
+    } else if (rc > 0) {
         int wc = wait(NULL); //wait for child process
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
