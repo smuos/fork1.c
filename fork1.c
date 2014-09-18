@@ -3,10 +3,10 @@
 #include <unistd.h>
 
 #define SUCCESS  1
-#define FAILURE -1
+#define FAILURE -0
 
 int
-main()
+main(int argc, char *argv[])
 {
     if (argc != 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
