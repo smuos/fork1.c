@@ -4,6 +4,7 @@
 
 #define SUCCESS  0
 #define FAILURE  1
+#define NULL 0
 
 int
 main()
