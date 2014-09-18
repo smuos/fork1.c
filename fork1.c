@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#define SUCCESS  1
-#define FAILURE -0
+#define SUCCESS  0 //this two declration is used for the exit command
+#define FAILURE -1 //and exit(0) stands for normal exit, no error
 
 int
 main(int argc, char *argv[])
@@ -25,7 +24,7 @@ main(int argc, char *argv[])
 
 	//unable to fork output to error file
 	fprintf(stderr, "fail to fork\n");
-        exit(0);//or exit(FAILURE) for consistance
+        exit(0);//or exit(SUCCESS) for consistance
 
     } else if (rc == 0) {//this is children
         fprintf(stderr, "Child can't talk to strangers.\n"); 
@@ -39,5 +38,5 @@ main(int argc, char *argv[])
         printf("Please leave my child alone, I am %d (wc:%d) and my child pid is%d\n",
 	       getpid(), wc, (int) rc);
     }
-    return 0;//should be return 0 instead of success(1)
+    return SUCCESS;//should be return 0 instead of success(1)
 }
