@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
         printf("Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
     }
-
     printf("Hi stranger! I'm (pid:%d)\n", getpid());
     int rc = fork(); //slice off another process
     
@@ -21,14 +20,16 @@ int main(int argc, char *argv[])
         printf("OS too hard, could not cut.\n");
         exit(SUCCESS);
     } else if (rc == 0) {
+        // Child process
         fprintf(stderr, "Child can't talk to strangers.\n"); 
         exit(1); 
         printf("Hello, I am child (pid:%d)\n", rc); 
         sleep(1);
-    } else if (rc == 2) {
+    } else {
+        // Parent process
         int wc = wait(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
-	       getpid(), wc, (int) rc);
+	       getpid(), wc, rc);
     }
     return SUCCESS;
 }
