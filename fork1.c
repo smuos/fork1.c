@@ -10,7 +10,7 @@ main(int argc, char *argv[])
 {
     if (argc != 1) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
-        exit(FAILURE);
+        exit(1);
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
