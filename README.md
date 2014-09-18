@@ -1,7 +1,7 @@
 fork1.c
 =======
 
-A simply wrong fork() example in C
+A lovely wrong fork() example in C
 
 
 Your mission is to fix this wayward example of the fork system call.  
