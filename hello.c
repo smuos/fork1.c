@@ -4,12 +4,11 @@
 
 #define SUCCESS  0
 #define FAILURE  1
-#define NULL 0
 
 int argc; 
+char *argv; 
 
-int
-main()
+int main()
 {
     if (argc != 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
