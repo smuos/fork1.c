@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SUCCESS  1
-#define FAILURE -1
+#define SUCCESS  0
+#define FAILURE  1
 
-int
-main()
+int argc; 
+char *argv; 
+
+int main()
 {
     if (argc != 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
@@ -18,7 +20,7 @@ main()
     if (rc < -1) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
-        exit(0);
+        exit(1);
     } else if (rc == 1) {
         fprintf(stderr, "Child can't talk to strangers.\n"); exit(1); printf("Hello, I am child (pid:%d)\n", (int) rc); sleep(1);
     } else if (rc == 2) {
