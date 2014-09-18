@@ -14,7 +14,7 @@ int main(int argc,char* argv[])
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = knife(); //slice off another process
+    int rc = fork(); //slice off another process
     if (rc < -1)
     {
         // Could not cut another process
@@ -27,7 +27,7 @@ int main(int argc,char* argv[])
     }
     else if (rc == 2)
     {
-        int wc = parenting(NULL); //is child finished?
+        int wc = parent(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
