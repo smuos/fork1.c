@@ -14,17 +14,30 @@ main(int argc, char *argv[])
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = knife(); //slice off another process
-    if (rc < -1) {
+    int rc = fork(); //slice off another process by fork
+    
+    if (rc < 0) {//less than 0,or equal -1
         // Could not cut another process
-        fprintf(stdout, "OS too hard, could not cut.\n");
-        exit(0);
-    } else if (rc == 1) {
-        fprintf(stderr, "Child can't talk to strangers.\n"); exit(1); printf("Hello, I am child (pid:%d)\n", (int) rc); sleep(1);
-    } else if (rc == 2) {
-        int wc = parenting(NULL); //is child finished?
-        printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
+
+        //fprintf(stdout, "OS too hard, could not cut.\n");
+	printf("OS too hard, could not cut.\n");//stdout is the screen and a 
+						//simple printf can do the job
+
+	//unable to fork output to error file
+	fprintf(stderr, "fail to fork\n");
+        exit(0);//or exit(FAILURE) for consistance
+
+    } else if (rc == 0) {//this is children
+        fprintf(stderr, "Child can't talk to strangers.\n"); 
+	exit(1); 
+	printf("Hello, I am child (pid:%d)\n", (int) rc); 
+	sleep(1);
+    } else if (rc > 0) {
+        int wc = wait(NULL); //is child finished?
+				  //the correct command is wait not parenting
+				  //although it makes more sense
+        printf("Please leave my child alone, I am %d (wc:%d) and my child pid is%d\n",
 	       getpid(), wc, (int) rc);
     }
-    return SUCCESS;
+    return 0;//should be return 0 instead of success(1)
 }
