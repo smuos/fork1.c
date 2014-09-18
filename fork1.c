@@ -25,7 +25,7 @@ main(int argc, char *argv[])
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
 	//exit the program
-        exit(0);
+        exit(FAILURE);
 	
     } else if (rc == 1) {
         fprintf(stderr, "Child can't talk to strangers.\n");
