@@ -15,3 +15,5 @@ gcc -Wall -o fork.out fork1.c
 Make use of [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_Commit_Convention) and informative commit messages.
 
 Submit your completed work as a pull request to this repository before the Fall 2014 Equinox.
+
+2014 equinox: March 20, 2014
