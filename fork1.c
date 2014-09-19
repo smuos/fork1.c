@@ -8,32 +8,35 @@
 int
 main(int argc, char *argv[])
 {
-  //if there are paraments when user run, give a warning
+  //If there are paraments when user run, give a warning
     if (argc != 1) {
       //Print out the warning
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
-	//exit the program
+	//Exit the program(FAILURE)
         exit(FAILURE);
     }
 
     //If user run the program sucessfully, print out welcome message with pid
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    //use fork() to a new process named rc
+    //Use fork() to a new process named rc
     int rc = fork(); 
-    //fork failed; exit
-    if (rc < -1) {
+    //Fork failed; exit(FAILURE)
+    if (rc < 0) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
-	//exit the program
+	//Exit the program(FAILURE)
         exit(FAILURE);
-	//	
+    //If rc is child process
     } else if (rc == 0) {
+        //Print out corresponding output if rc is child process
         fprintf(stderr, "Child can't talk to strangers.\n");
-	exit(FAILURE);
+	//Print out corresponding output if rc is child process
 	printf("Hello, I am child (pid:%d)\n", (int) rc);
-	sleep(1);
+    //If rc is parent process
     } else if (rc > 0) {
-        int wc = wait(NULL); //wait for child process
+        //Wait for child process
+        int wc = wait(NULL); 
+	//Print out corresponding output if rc is parent process
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
