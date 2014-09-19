@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #define SUCCESS  0 //this two declration is used for the exit command
-#define FAILURE -1 //and exit(0) stands for normal exit, no error
+#define FAILURE  1 //and exit(0) stands for normal exit, no error
 
 int
 main(int argc, char *argv[])
@@ -25,8 +25,9 @@ main(int argc, char *argv[])
         exit(0);//or exit(SUCCESS) for consistance
 
     } else if (rc == 0) {//this is children
-        fprintf(stderr, "Child can't talk to strangers.\n");
-	exit(1);
+       /* fprintf(stderr, "Child can't talk to strangers.\n");
+	exit(1);//the following two line will not be run, because the program is exited
+*/
 	printf("Hello, I am child (pid:%d)\n", (int) rc);
 	sleep(1);
     } else if (rc > 0) {
