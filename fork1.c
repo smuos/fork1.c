@@ -9,7 +9,7 @@ int
 main(int argc, char *argv[])
 {
   //If there are paraments when user run, give a warning
-    if (argc != 1) {
+    if (argc == 0) {
       //Print out the warning
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
 	//Exit the program(FAILURE)
