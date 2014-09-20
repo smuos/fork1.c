@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SUCCESS  1
+#define SUCCESS  0 //return 0 to exit when success
 #define FAILURE -1
 
 int
