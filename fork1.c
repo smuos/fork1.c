@@ -10,7 +10,7 @@ main(int argc, char *argv[])
 {
     // check the parameters and prints error message if
     // improper parameters are received
-    if (argc != 1) {
+    if (argc == 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
         exit(1);
     }
@@ -29,8 +29,8 @@ main(int argc, char *argv[])
 	exit(1);
 	printf("Hello, I am child (pid:%d)\n", (int) getpid());
 	sleep(1);
-    //check if it is parent
-    } else if (rc > 0) {
+    // It is parent
+    } else {
         int wc = wait(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
