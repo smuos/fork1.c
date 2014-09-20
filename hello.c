@@ -19,8 +19,9 @@ main()
      	//fork call failed, exiting program
         fprintf(stderr,"fork failed\n"); //corrected failure message
         exit(1); //exit(1) is used for an error
-    } else if (rc == 1) {
-        fprintf(stderr, "Child can't talk to strangers.\n"); exit(1); printf("Hello, I am child (pid:%d)\n", (int) rc); sleep(1);
+    } else if (rc == 0)/*child has a return code of zero*/ {
+        //no error here, we do not want to exit program
+	 printf("Hello, I am child (pid:%d)\n", (int) getpid()/*we want process id, not return code here*/);//don't want sleep function here
     } else if (rc == 2) {
         int wc = parenting(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
