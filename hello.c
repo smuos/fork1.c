@@ -13,12 +13,12 @@ main()
         exit(FAILURE);
     }
 
-    printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
+    printf("Hello world (pid:%d)\n", (int) getpid());//we want to say hello to the world, not strangers
     int rc = fork(); //function is meant to copy the process, not remove one
     if (rc < -1) {
-        // Could not cut another process
-        fprintf(stdout, "OS too hard, could not cut.\n");
-        exit(0);
+     	//fork call failed, exiting program
+        fprintf(stderr,"fork failed\n"); //corrected failure message
+        exit(1); //exit(1) is used for an error
     } else if (rc == 1) {
         fprintf(stderr, "Child can't talk to strangers.\n"); exit(1); printf("Hello, I am child (pid:%d)\n", (int) rc); sleep(1);
     } else if (rc == 2) {
