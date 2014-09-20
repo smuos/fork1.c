@@ -33,13 +33,13 @@ main(int argc, char *argv[])
 	//Print out corresponding output if rc is child process
 	printf("Hello, I am child (pid:%d)\n", (int) rc);
     //If rc is parent process
-    } else if (rc > 0) {
+    } else{
         //Wait for child process
         int wc = wait(NULL); 
 	//Print out corresponding output if rc is parent process
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
-    //return 1 to show program runs sucessfully
+    //return 0 to show program runs sucessfully
     return SUCCESS;
 }
