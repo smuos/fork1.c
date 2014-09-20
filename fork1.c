@@ -35,5 +35,5 @@ main(int argc, char *argv[])
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
-    return SUCCESS;
+    return 0;
 }
