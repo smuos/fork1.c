@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SUCCESS  1
-#define FAILURE 0
+#define SUCCESS 0
+#define FAILURE 1
 
 int
 main(int argc, char *argv[])
@@ -12,7 +12,7 @@ main(int argc, char *argv[])
     // improper parameters are received
     if (argc == 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
-        exit(1);
+        exit(FAILURE);
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
@@ -22,11 +22,10 @@ main(int argc, char *argv[])
     if (rc < 0) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
-        exit(1);
+        exit(FAILURE);
     //check if it is child
     } else if (rc == 0) {
         fprintf(stderr, "Child can't talk to strangers.\n");
-	exit(1);
 	printf("Hello, I am child (pid:%d)\n", (int) getpid());
 	sleep(1);
     // It is parent
@@ -35,5 +34,5 @@ main(int argc, char *argv[])
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
-    return 0;
+    return SUCCESS;
 }
