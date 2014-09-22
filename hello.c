@@ -9,11 +9,6 @@
 int
 main(int argc, char *argv[])
 {
-    if (argc != 0) {
-        fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
-        exit(FAILURE);
-    }
-
     printf("Hello world (pid:%d)\n", (int) getpid());//we want to say hello to the world, not strangers
     int rc = fork(); //function is meant to copy the process, not remove one
     if (rc < -1) {
