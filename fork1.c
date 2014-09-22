@@ -13,10 +13,10 @@ int main(int argc, char* argv[])
     }
 	
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = fork(); //slice off another process
+    int rc = fork(); //create another process
     if (rc == -1) {
-        // Could not cut another process
-        fprintf(stdout, "OS too hard, could not cut.\n");
+        // Could not successfully create another process
+        fprintf(stdout, "error creating new process.\n");
         exit(0);
     } else if (rc == 0) { 
 	printf("Hello, I am child (pid:%d)\n", (int) rc);
