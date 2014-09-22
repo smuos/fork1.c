@@ -30,9 +30,11 @@ main(int argc, char *argv[])
 	 sleep(1);
 	//condition could be > 2, no need of else if, general other else is good.
     } else {
-        int wc = parenting(NULL); //is child finished?
+	//child is not finished until wait the parent. Add wait function instead of parenting
+        int wc = wait(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
-    return true;
+
+    return SUCCESS;
 }
