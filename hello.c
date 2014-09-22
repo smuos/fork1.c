@@ -8,8 +8,8 @@
 int
 main(int argc, char *argv[])
 {
-	//Just add a comment!!!//
-    if (argc != 0) {
+	//value of agrc is not 1, then no parameters, output failure.//
+    if (argc != 1) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
     }
