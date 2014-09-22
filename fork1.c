@@ -4,12 +4,13 @@
 
 #define SUCCESS  1
 #define FAILURE -1
+#define NUMARGS 1    //number of arguments 
 
-int
-main()
+int main(int argc, char** argv)
 {
-    if (argc != 0) {
-        fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
+    if (argc != NUMARGS)
+    {
+        fprintf(stderr, "Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
     }
 
