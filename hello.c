@@ -7,7 +7,7 @@
 #define FAILURE -1
 
 int
-main()
+main(int argc, char *argv[])
 {
     if (argc != 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
