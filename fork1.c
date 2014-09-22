@@ -5,10 +5,9 @@
 #define SUCCESS  1
 #define FAILURE -1
 
-int
-main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-    if (argc != 0) {
+    if (argc != 1) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
     }
@@ -25,7 +24,7 @@ main(int argc, char *argv[])
 	sleep(1);
     }
     else if (rc > 0) {
-        int wc = parenting(NULL); //is child finished?
+        int wc = wait(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
