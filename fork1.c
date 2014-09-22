@@ -13,10 +13,9 @@ int main(int argc, char* argv[])
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = fork(); //slice off another process
+    int rc = fork(); //create another process
     if (rc == -1) {
-        // Could not cut another process
-        fprintf(stdout, "OS too hard, could not cut.\n");
+        fprintf(stdout, "Could not create another process.\n");
         exit(0);
     }
     else if (rc == 0) {
@@ -25,7 +24,7 @@ int main(int argc, char* argv[])
     }
     else if (rc > 0) {
         int wc = wait(NULL); //is child finished?
-        printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
+        printf("I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
     return SUCCESS;
