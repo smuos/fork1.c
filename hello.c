@@ -13,9 +13,10 @@ main(int argc, char *argv[])
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
     }
-
+	//printed message//
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = knife(); //slice off another process
+	//suppose to be fork function instead of knife function
+    int rc = fork(); //slice off another process
     if (rc < -1) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
