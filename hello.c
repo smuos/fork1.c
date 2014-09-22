@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 #define SUCCESS  0 //return 0 to exit when success
 #define FAILURE -1
@@ -22,10 +23,10 @@ main()
     } else if (rc == 0)/*child has a return code of zero*/ {
         //no error here, we do not want to exit program
 	 printf("Hello, I am child (pid:%d)\n", (int) getpid()/*we want process id, not return code here*/);//don't want sleep function here
-    } else if (rc == 2) {
-        int wc = parenting(NULL); //is child finished?
-        printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
-	       getpid(), wc, (int) rc);
+    } else /*no condition required, anything bigger than 0 for return code is the parent*/ {
+        int wc = wait(NULL); //use call to wait to wait until child process is finished running
+        printf("Hello, I am parent of %d (wc:%d) (pid:%d)\n", //child process is complete so it runs parent process
+			rc, wc, (int) getpid());
     }
     return SUCCESS;
 }
