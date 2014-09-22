@@ -28,7 +28,8 @@ main(int argc, char *argv[])
 	 exit(1);
 		printf("Hello, I am child (pid:%d)\n", (int) rc);
 	 sleep(1);
-    } else if (rc == 2) {
+	//condition could be > 2, no need of else if, general other else is good.
+    } else {
         int wc = parenting(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
