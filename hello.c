@@ -6,7 +6,7 @@
 #define FAILURE -1
 
 int
-main()
+main(int argc, char *argv[])
 {
 	//Just add a comment!!!//
     if (argc != 0) {
