@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
-#define SUCCESS  1
+#define SUCCESS 0
 #define FAILURE -1
 #define NUMARGS 1    //number of arguments 
 
@@ -18,8 +19,8 @@ int main(int argc, char** argv)
 
     if (rc < 0) {
         // Could not cut another process
-        fprintf(stdout, "OS too hard, could not cut.\n");
-        exit(0);
+        fprintf(stderr, "OS too hard, could not cut.\n");
+        exit(FAILURE);
     } 
     
     else if (rc == 0) {
@@ -27,7 +28,7 @@ int main(int argc, char** argv)
     } 
     
     else if (rc > 0) {
-        int wc = parenting(NULL); //is child finished?
+        int wc = wait(NULL); //wait until child is finished
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
