@@ -15,22 +15,25 @@ int main(int argc, char** argv)
     }
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
-    int rc = fork(); //create another process
+    int rc = fork(); //create another process. returns child's pid.
 
     if (rc < 0) {
-        // Could not cut another process
-        fprintf(stderr, "OS too hard, could not cut.\n");
+        // Could not create another process
+        fprintf(stderr, "OS too hard, could not fork.\n");
         exit(FAILURE);
     } 
     
     else if (rc == 0) {
-        fprintf(stderr, "Child can't talk to strangers.\n"); exit(1); printf("Hello, I am child (pid:%d)\n", (int) rc); sleep(1);
+        //child code
+	printf("Hello, I am child (pid:%d)\n", (int) getpid()); 
+	sleep(1);
     } 
     
     else if (rc > 0) {
-        int wc = wait(NULL); //wait until child is finished
+        //parent code
+	int wc = wait(NULL); //wait until child is finished
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
-	       getpid(), wc, (int) rc);
+	       getpid(), wc, getpid());
     }
     return SUCCESS;
 }
