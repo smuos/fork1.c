@@ -5,7 +5,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-#define SUCCESS  1
+#define SUCCESS  0
 #define FAILURE -1
 
 int
