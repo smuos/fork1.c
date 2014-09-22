@@ -3,12 +3,13 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <sys/wait.h>
+#include <sys/types.h>
 
 #define SUCCESS  1
 #define FAILURE -1
 
 int
-main(int argc, char *argv[])
+main(int argc, char *argv[])  //pass in two parameters
 {
   if (argc != 0) {
     fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
