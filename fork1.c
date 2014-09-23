@@ -17,7 +17,7 @@ main(int argc, char *argv[])
     
     int rc = fork(); //slice off another process
     
-    if (rc < -1) {
+    if (rc < 0) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
         exit(0);
