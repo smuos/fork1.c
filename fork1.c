@@ -30,7 +30,7 @@ main(int argc, char *argv[])
     } else {
         int wc = wait(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
-	       getpid(), wc, (int) rc);
+	       (int) getpid(), wc, (int) rc);
     }
     
     return SUCCESS;
