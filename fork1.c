@@ -26,7 +26,7 @@ main(int argc, char *argv[])
         exit(1);
         printf("Hello, I am child (pid:%d)\n", (int) getpid());
         sleep(1);
-    } else if (rc == 2) {
+    } else {
         int wc = wait(NULL); //is child finished?
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
