@@ -24,7 +24,7 @@ main(int argc, char *argv[])
     } else if (rc == 1) {
         fprintf(stderr, "Child can't talk to strangers.\n");
         exit(1);
-        printf("Hello, I am child (pid:%d)\n", (int) rc);
+        printf("Hello, I am child (pid:%d)\n", (int) getpid());
         sleep(1);
     } else if (rc == 2) {
         int wc = wait(NULL); //is child finished?
