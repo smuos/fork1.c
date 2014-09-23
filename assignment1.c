@@ -16,12 +16,12 @@ main(int argc, char *argv[])
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
         exit(1);
-    }else if (rc == 0) { //child
+    }else if (rc == 0) { //child (new process)
     fprintf(stderr, "Child can't talk to strangers.\n"); printf("Hello, I am child (pid:%d)\n",(int) getpid());
-    sleep(1);
+    sleep(1);//wait for 1 second
     }else {
-        int wc = wait(NULL); //is child finished?
-        printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n", rc, wc, (int) getpid());
+        int wc = wait(NULL); //is child finished? wait for child
+        printf("Please leave my child alone, I am parent of %d (wc:%d) (pid:%d)\n", rc, wc, (int) getpid());
     }
     return 0;
 }
