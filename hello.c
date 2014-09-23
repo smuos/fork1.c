@@ -25,7 +25,8 @@ main()
 	exit(1); 
 	printf("Hello, I am child (pid:%d)\n", (int) getpid()); 
 	sleep(1);
-    } else if (rc == 2) {
+    } else {
+      //Do not need this rc==2 this condition
         int wc = wait(NULL); //wait function
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
