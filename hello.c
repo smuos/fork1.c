@@ -15,7 +15,7 @@ main()
 
     printf("Hi stranger! I'm (pid:%d)\n", (int) getpid());
     int rc = fork(); // Create the fork process
-    if (rc < -1) {
+    if (rc < 0) {
         // Could not cut another process
         fprintf(stdout, "OS too hard, could not cut.\n");
         exit(0);
