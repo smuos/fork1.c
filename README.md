@@ -1,7 +1,7 @@
 fork1.c
 =======
 
-A simply wrong fork() example in C
+A lovely wrong fork() example in C
 
 
 Your mission is to fix this wayward example of the fork system call.  
@@ -12,6 +12,5 @@ Your final code must correctly compile with gcc 4.9.1, without warnings, with th
 gcc -Wall -o fork.out fork1.c
 ```
 
-Make use of [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_Commit_Convention) and informative commit messages.
+ubmit your completed work as a pull request to this repository before the Fall 2014 Equinox. March 20, 2014
 
-Submit your completed work as a pull request to this repository before the Fall 2014 Equinox.
