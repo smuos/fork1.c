@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
+//Let the wait function work
 
 #define SUCCESS  1
 #define FAILURE -1
