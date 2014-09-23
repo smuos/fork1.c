@@ -7,8 +7,8 @@
 #define SUCCESS  1
 #define FAILURE -1
 
-int
-main()
+int main(int argc, char *argv[])
+//declare the valuables
 {
     if (argc != 0) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
