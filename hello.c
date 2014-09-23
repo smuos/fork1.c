@@ -25,7 +25,7 @@ main()
 	printf("Hello, I am child (pid:%d)\n", (int) rc); 
 	sleep(1);
     } else if (rc == 2) {
-        int wc = parenting(NULL); //is child finished?
+        int wc = wait(NULL); //wait function
         printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
 	       getpid(), wc, (int) rc);
     }
