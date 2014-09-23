@@ -8,7 +8,7 @@
 int
 main(int argc, char *argv[])
 {
-    if (argc != 0) {
+    if (argc != 1) {
         fprintf(stdout, "Program %s takes no parameters.\n", argv[0]);
         exit(FAILURE);
     }
