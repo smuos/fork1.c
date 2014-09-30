@@ -18,18 +18,18 @@ int main(int argc, char *argv[])
     if (rc < 0) {
         // Could not cut another process
         printf("OS too hard, could not cut.\n");
-        exit(SUCCESS);
+        exit(FAILURE);
     } else if (rc == 0) {
         // Child process
         fprintf(stderr, "Child can't talk to strangers.\n"); 
-        exit(1); 
-        printf("Hello, I am child (pid:%d)\n", rc); 
+        printf("Hello, I am child (pid:%d)\n", getpid());
         sleep(1);
+        exit(SUCCESS); 
     } else {
         // Parent process
         int wc = wait(NULL); //is child finished?
-        printf("Please leave my child alone, I am %d (wc:%d) (pid:%d)\n",
-	       getpid(), wc, rc);
+        printf("Please leave my child alone, I am %d (My Child is:%d)\n",
+	       getpid(), rc);
     }
     return SUCCESS;
 }
